@@ -1,0 +1,20 @@
+
+@baseUrl = http://localhost
+@port = 5423
+@apiPrefix = api/v1
+
+### get ok
+GET {{baseUrl}}:{{port}}/ok
+
+### post ok
+POST {{baseUrl}}:{{port}}/api/data
+Content-Type: application/json
+
+{
+	"x": 1223,
+	"y": 563,
+	"k": "zanel"
+}
+
+### 404
+GET {{baseUrl}}:{{port}}/errror
