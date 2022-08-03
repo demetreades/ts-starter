@@ -1,2 +1,3 @@
 // eslint-disable-next-line no-console
-console.log('services index');
+const index = 'services index';
+export default index;

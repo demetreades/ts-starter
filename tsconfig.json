@@ -4,19 +4,19 @@
     "module": "commonjs",
     "rootDir": "./src",
     "moduleResolution": "node",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "sourceMap": true,
     "outDir": "./build",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    // "paths": {
-    //   "@utils/*": ["./src/utils/*"],
-    //   "@config/*": ["./src/config/*"],
-    //   "@services/*": ["./src/services/*"]
-    // },
+    "paths": {
+      "@utils": ["src/utils"],
+      "@config": ["src/config"],
+      "@services": ["src/services"]
+    },
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "build", "coverage", "tests"],
+  "exclude": ["node_modules", "**/*.spec.ts", "build", "coverage", "tests"],
   "include": ["src/**/*"]
 }

@@ -1,2 +1,4 @@
-node_modules
 _OTHER
+node_modules
+build
+.env

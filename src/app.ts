@@ -1,7 +1,15 @@
+/* eslint-disable no-console */
 import express, { Application, RequestHandler, ErrorRequestHandler } from 'express';
 import helmet from 'helmet';
+import utils from '@utils';
+import services from '@services';
+import { config } from '@config';
 
 const app: Application = express();
+
+console.log(utils);
+console.log(services);
+console.log(config);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

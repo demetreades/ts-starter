@@ -1,2 +1,3 @@
 /* eslint-disable no-console */
-console.log('utils index');
+const index = 'utils index';
+export default index;
