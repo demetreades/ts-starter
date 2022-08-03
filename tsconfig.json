@@ -17,6 +17,7 @@
       "@/*": ["./*"]
     }
   },
-  "exclude": ["node_modules", "**/*.spec.ts", "build", "coverage", "tests"],
+  "exclude": ["node_modules", "build", "coverage", "tests"],
+
   "include": ["./src/**/*"]
 }

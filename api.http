@@ -6,11 +6,11 @@
 ### endpoints
 
 
-### get ok
-GET {{baseUrl}}:{{port}}/ok
+### get health check
+GET {{baseUrl}}:{{port}}/health/check
 
-### post ok
-POST {{baseUrl}}:{{port}}/api/data
+### post user create
+POST {{baseUrl}}:{{port}}/users/create
 Content-Type: application/json
 
 {

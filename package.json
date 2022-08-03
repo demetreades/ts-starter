@@ -5,14 +5,14 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "rm -rf build && tsc",
-		"start": "export NODE_ENV=production && npm run build && node build/src/app.js",
+		"start": "export NODE_ENV=production && npm run build && node -r tsconfig-paths/register -r ts-node/register/transpile-only  build/server.js",
 		"dev": "nodemon",
-		"test": "",
+		"test": "export NODE_ENV=testing && mocha --check-leaks -r tsconfig-paths/register -r ts-node/register './src/**/*.spec.ts'",
 		"test:coverage": "",
 		"lint": "eslint . --ext .ts",
 		"lint-staged": "FORCE_COLOR=1 lint-staged",
 		"prepare": "husky install",
-		"prettier": "prettier --write",
+		"prettier": "prettier -w .",
 		"reinstall": "rm -rf node_modules && npm ci",
 		"kill": "kill -9 $(lsof -t -i:5423) && npm run dev"
 	},

@@ -1,2 +1,3 @@
-const index = 'utils index';
-export default index;
+import { log } from './logger';
+
+export { log };
