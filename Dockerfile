@@ -2,8 +2,7 @@ FROM node:alpine
 
 WORKDIR /usr/api
 
-RUN npm i -g npm@latest nodemon
-# RUN npm install -g ts-node
+RUN npm i -g npm@latest
 
 COPY package*.json .
 RUN npm i && npm cache clean --force
@@ -11,10 +10,5 @@ RUN npm i && npm cache clean --force
 
 COPY tsconfig.json .
 COPY nodemon.json .
-
-COPY src ./src
-
-RUN ls -a
-
 
 COPY . .
