@@ -3,6 +3,9 @@
 @port = 5423
 @apiPrefix = api/v1
 
+### endpoints
+
+
 ### get ok
 GET {{baseUrl}}:{{port}}/ok
 

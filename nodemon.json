@@ -9,7 +9,7 @@
 		"coverage"
 	],
 	"restartable": "rs",
-	"exec": "ts-node -r tsconfig-paths/register -r ./src/app.ts",
+	"exec": "ts-node -r tsconfig-paths/register ./src/app.ts",
 	"signal": "SIGTERM",
 	"env": {
 		"NODE_ENV": "development",
