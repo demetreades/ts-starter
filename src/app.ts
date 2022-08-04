@@ -1,10 +1,12 @@
 import express, { urlencoded, json, Application } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
+import cookieSession from 'cookie-session';
 import { corsConfig } from './config';
-import { routes } from './api';
-import { handleNotFound, handleErrors, handleRequest } from './api/middlewares';
+import { routes, middlewares } from './api';
 import { log } from '@/utils';
+
+const { handleNotFound, handleErrors, handleRequest } = middlewares;
 
 const startApp = (): Application => {
   const app: Application = express();
@@ -13,6 +15,12 @@ const startApp = (): Application => {
   app.use(urlencoded({ extended: true }));
   app.use(helmet());
   app.use(cors(corsConfig));
+  app.use(
+    cookieSession({
+      keys: ['string'],
+    })
+  );
+
   app.use(handleRequest);
 
   app.use(routes);
