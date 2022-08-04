@@ -1,8 +1,19 @@
+/* eslint-disable security/detect-object-injection */
 import { corsConfig } from './cors';
 
 const enviroment = process.env.NODE_ENV as string;
 
-const config = {
+interface MainConfig {
+  enviroment: string;
+  development: Config;
+  testing: Config;
+  staging: Config;
+  production: Config;
+}
+type Config = { enviroment: string; port: number };
+
+const config: MainConfig = {
+  enviroment,
   development: {
     enviroment: 'development',
     port: 5423,
@@ -22,4 +33,5 @@ const config = {
 };
 
 export { corsConfig };
-export default config[enviroment];
+export default config;
+// export default config[config.enviroment] as Config;
