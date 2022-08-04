@@ -14,7 +14,12 @@
     // "allowJs": true,
     // "resolveJsonModule": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/api/*": ["./api/*"],
+      "@/config/*": ["./config/*"],
+      "@/repository/*": ["./repository/*"],
+      "@/services/*": ["./services/*"],
+      "@/utils/*": ["./utils/*"]
     }
   },
   "exclude": ["node_modules", "build", "coverage", "tests"],

@@ -1,9 +1,11 @@
-import express, { urlencoded, json, Application } from 'express';
+import express, { json, urlencoded, type Application } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import cookieSession from 'cookie-session';
+// import bodyParser from 'body-parser';
 import { corsConfig } from './config';
-import { routes, middlewares } from './api';
+import { routes } from './api/routes';
+import middlewares from './api/middlewares';
 import { log } from '@/utils';
 
 const { handleNotFound, handleErrors, handleRequest } = middlewares;
@@ -11,10 +13,12 @@ const { handleNotFound, handleErrors, handleRequest } = middlewares;
 const startApp = (): Application => {
   const app: Application = express();
 
-  app.use(json());
-  app.use(urlencoded({ extended: true }));
+  // app.use(bodyParser.json());
+  // app.use(bodyParser.urlencoded({ extended: true }));
   app.use(helmet());
   app.use(cors(corsConfig));
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
   app.use(
     cookieSession({
       keys: ['string'],
