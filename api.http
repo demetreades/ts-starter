@@ -16,10 +16,9 @@ PUT {{baseUrl}}:{{port}}/users/edit/203948
 ###
 PATCH {{baseUrl}}:{{port}}/users/edit/203948
 ###
-POST {{baseUrl}}:{{port}}/users/register
+POST {{baseUrl}}:{{port}}/users/remove/2354235
 ###
-POST {{baseUrl}}:{{port}}/users/remove
-###
+# Content-Type: application/json; charset=utf-8
 POST {{baseUrl}}:{{port}}/users/register
 Content-Type: application/json
 
