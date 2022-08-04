@@ -16,3 +16,19 @@ services:
     ports:
       - '5423:5423'
     command: npm run dev
+
+  database:
+    image: mongo
+    container_name: mongo_database_container
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=database
+    ports:
+      - 27017:27017
+    volumes:
+      - database:/data/db
+
+volumes:
+  database:
