@@ -3,21 +3,43 @@
 @port = 5423
 @apiPrefix = api/v1
 
-### endpoints
-
-
-### get health check
+### HEALTH ROUTES
 GET {{baseUrl}}:{{port}}/health/check
 
-### post user create
-POST {{baseUrl}}:{{port}}/users/create
+### USER ROUTES
+###
+GET {{baseUrl}}:{{port}}/users
+###
+GET {{baseUrl}}:{{port}}/users/235262
+###
+PUT {{baseUrl}}:{{port}}/users/edit/203948
+###
+PATCH {{baseUrl}}:{{port}}/users/edit/203948
+###
+POST {{baseUrl}}:{{port}}/users/register
+###
+POST {{baseUrl}}:{{port}}/users/remove
+###
+POST {{baseUrl}}:{{port}}/users/remove
 Content-Type: application/json
 
 {
-	"x": 1223,
-	"y": 563,
-	"k": "zanel"
+	"username": "uzaneim",
+	"password": "7815696ecbf1c96e6894b779456d330e",
 }
+
+
+### AUTH
+###
+POST {{baseUrl}}:{{port}}/auth/login
+Content-Type: application/json
+
+{
+	"username": "uzaneim",
+	"password": "7815696ecbf1c96e6894b779456d330e",
+}
+###
+GET {{baseUrl}}:{{port}}/auth/logout
 
 ### 404
 GET {{baseUrl}}:{{port}}/errror
