@@ -1,4 +1,4 @@
-import { RequestHandler, Request } from 'express';
+import { Request, RequestHandler } from 'express';
 
 const get = ((req, res) => {
   res.status(200).json({
@@ -14,23 +14,25 @@ const getAll = ((req, res) => {
   });
 }) as RequestHandler;
 
-interface IUser {
-  username: string;
-  password?: string;
+interface IRequestWithBody extends Request {
+  body: { [key: string]: string | undefined };
 }
 
-const register = ((req, res) => {
-  const { username } = req.body as IUser;
+const register = ((req: IRequestWithBody, res) => {
+  const { body } = req.body;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const { email, username, password } = JSON.parse(body as string);
 
   // eslint-disable-next-line no-console
-  console.log(username);
+  console.log(username, email, password);
 
   res.status(200).json({
     ok: true,
     message: 'user register',
-    data: {
-      username,
-    },
+    // data: {
+    //   ...((username && { username }) ?? { username: 'no username' }),
+    //   ...((email && { email }) ?? { email: 'no email' }),
+    // },
   });
 }) as RequestHandler;
 

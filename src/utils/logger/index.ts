@@ -14,6 +14,7 @@ const devConfig = {
   serializers: {
     req: stdSerializers.req,
     res: stdSerializers.res,
+    err: stdSerializers.err,
     cause: stdSerializers.err,
   },
 };

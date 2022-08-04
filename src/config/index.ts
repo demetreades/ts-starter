@@ -1,37 +1,37 @@
 /* eslint-disable security/detect-object-injection */
 import { corsConfig } from './cors';
 
-const enviroment = process.env.NODE_ENV as string;
+const environment = process.env.NODE_ENV as string;
 
-interface MainConfig {
-  enviroment: string;
+interface IMainConfig {
+  environment: string;
   development: Config;
   testing: Config;
   staging: Config;
   production: Config;
 }
-type Config = { enviroment: string; port: number };
+type Config = { environment: string; port: number };
 
-const config: MainConfig = {
-  enviroment,
+const config: IMainConfig = {
+  environment,
   development: {
-    enviroment: 'development',
+    environment: 'development',
     port: 5423,
   },
   testing: {
-    enviroment: 'testing',
+    environment: 'testing',
     port: 5008,
   },
   staging: {
-    enviroment: 'staging',
+    environment: 'staging',
     port: 5010,
   },
   production: {
-    enviroment: 'production',
+    environment: 'production',
     port: 5011,
   },
 };
 
 export { corsConfig };
 export default config;
-// export default config[config.enviroment] as Config;
+// export default config[config.environment] as Config;

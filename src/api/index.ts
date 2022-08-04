@@ -1,4 +1,5 @@
 import * as controllers from './controllers';
 import { routes } from './routes';
+import middlewares from './middlewares';
 
-export { controllers, routes };
+export { controllers, middlewares, routes };
